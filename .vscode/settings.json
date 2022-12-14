@@ -1,0 +1,9 @@
+{
+    "python.formatting.provider": "black",
+    "python.testing.pytestArgs": [
+        "test"
+    ],
+	"python.envFile": "${workspaceFolder}/.vs-env",
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
