@@ -10,6 +10,9 @@ MERGE (:Virtus)
 // business processes
 MERGE(busproc_mgt_fee:BusinessProcess {businessProcessId:0, name:'Management Fees'})
     MERGE (busproc_mgt_fee)-[:BUSINESS_OWNER]->(lina)
+    MERGE (domain_revenue)-[:OWNS]->(busproc_mgt_fee)
+MERGE(busproc_aum:BusinessProcess {businessProcessId:1, name:'AUM'})
+    MERGE (domain_finance)-[:OWNS]->(busproc_aum)
 
 // affiliates
 MERGE (:Affiliate {name:'Seix'})
