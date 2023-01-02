@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 pandas = "*"
 neo4j = "*"
+openpyxl = "*"
+jinja2 = "*"
 
 [dev-packages]
 ipykernel = "*"
