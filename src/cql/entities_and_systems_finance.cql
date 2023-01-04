@@ -5,7 +5,7 @@ MATCH (lina:Person {name:'Lina Patel'})             // org_finance.cql
 MATCH (paul:Person {name:'Paul Brazdzionis'})       // org_it_apps.cql
 
 // Virtus
-MERGE (:Virtus)
+MERGE (:Entity:Virtus)
 
 // business processes
 MERGE(busproc_mgt_fee:BusinessProcess {businessProcessId:0, name:'Management Fees'})
@@ -15,34 +15,34 @@ MERGE(busproc_aum:BusinessProcess {businessProcessId:1, name:'AUM'})
     MERGE (domain_finance)-[:OWNS]->(busproc_aum)
 
 // affiliates
-MERGE (:Affiliate {name:'Seix'})
-MERGE (:Affiliate {name:'Kayne'})
-MERGE (:Affiliate {name:'Silvant'})
-MERGE (:Affiliate {name:'Ceredex'})
-MERGE (:Affiliate {name:'SGA'})
-MERGE (:Affiliate {name:'Duff and Phelps'})
-MERGE (:Affiliate {name:'Stone Harbor'})
+MERGE (:Entity:Affiliate {name:'Seix'})
+MERGE (:Entity:Affiliate {name:'Kayne'})
+MERGE (:Entity:Affiliate {name:'Silvant'})
+MERGE (:Entity:Affiliate {name:'Ceredex'})
+MERGE (:Entity:Affiliate {name:'SGA'})
+MERGE (:Entity:Affiliate {name:'Duff and Phelps'})
+MERGE (:Entity:Affiliate {name:'Stone Harbor'})
 
 // third parties
-MERGE (ibm:Vendor {name:'IBM'})-[:OWNS]->(tm1:System {name:'TM1'})
+MERGE (ibm:Entity:Vendor {name:'IBM'})-[:OWNS]->(tm1:System {name:'TM1'})
     MERGE(paul)<-[:TECHNICAL_PRODUCT_OWNER]-(tm1)
     MERGE(domain_finance)-[:OWNS]->(tm1)
-MERGE (br:Vendor {name:'Broadridge'})-[:OWNS]->(revport:System {name:'Revport'})
+MERGE (br:Entity:Vendor {name:'Broadridge'})-[:OWNS]->(revport:System {name:'Revport'})
     SET revport.description='Calculates management fees for institutional accounts.'
     MERGE(lina)<-[:PRODUCT_OWNER]-(revport)
     MERGE(paul)<-[:TECHNICAL_PRODUCT_OWNER]-(revport)
     MERGE(domain_revenue)-[:OWNS]->(revport)
     MERGE (busproc_mgt_fee)-[:USES]->(revport)
-MERGE (sap:Vendor {name:'SAP'})
+MERGE (sap:Entity:Vendor {name:'SAP'})
     MERGE (sap)-[:OWNS]->(concur:System {name:'Concur', description:'Travel Expenses'})
     MERGE(paul)<-[:TECHNICAL_PRODUCT_OWNER]-(sap)
     MERGE(domain_expenses)-[:OWNS]->(sap)
-MERGE (vsp:Vendor {name:'SalesPage'})
+MERGE (vsp:Entity:Vendor {name:'SalesPage'})
     MERGE (vsp)-[:OWNS]->(sp:System {name:'SalesPage', description:'CRM for Retail Business'})
-MERGE (ship:Vendor {name:'SHIP'})
+MERGE (ship:Entity:Vendor {name:'SHIP'})
     MERGE (ship)-[:OWNS]->(:System {name:'VBAM', description:'VBAM'})
-MERGE (:Vendor {name:'SS&C'})-[:OWNS]->(:System {name:'GWP', description:'Global Wealth Platform'})
-MERGE (bny:Vendor {name:'BNY'})
+MERGE (:Entity:Vendor {name:'SS&C'})-[:OWNS]->(:System {name:'GWP', description:'Global Wealth Platform'})
+MERGE (bny:Entity:Vendor {name:'BNY'})
     MERGE (bny)-[:OWNS]->(egl:System {name:'Eagle'})
 
 // applications
