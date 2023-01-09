@@ -1,0 +1,7 @@
+MATCH (db_Revport:Database {name: 'Revport'})
+MERGE (revport_dbo_bss_smm_issuemap:Table {tableId:'revport_dbo_bss_smm_issuemap', fqn:'Revport.dbo.BSS_SMM_ISSUEMAP', tableName:'BSS_SMM_ISSUEMAP'})
+MERGE (db_Revport)-[:CONTAINS]->(revport_dbo_bss_smm_issuemap)
+	MERGE (:Field {fieldId:'revport_dbo_bss_smm_issuemap_issuemapid', fqn:'revport_dbo_bss_smm_issuemap.ISSUEMAPID', fieldName:'ISSUEMAPID'})<-[:CONTAINS]-(revport_dbo_bss_smm_issuemap)
+	MERGE (:Field {fieldId:'revport_dbo_bss_smm_issuemap_issuemasterid', fqn:'revport_dbo_bss_smm_issuemap.ISSUEMASTERID', fieldName:'ISSUEMASTERID'})<-[:CONTAINS]-(revport_dbo_bss_smm_issuemap)
+	MERGE (:Field {fieldId:'revport_dbo_bss_smm_issuemap_bsslookuptypeid', fqn:'revport_dbo_bss_smm_issuemap.BSSLOOKUPTYPEID', fieldName:'BSSLOOKUPTYPEID'})<-[:CONTAINS]-(revport_dbo_bss_smm_issuemap)
+	MERGE (:Field {fieldId:'revport_dbo_bss_smm_issuemap_issuevalue', fqn:'revport_dbo_bss_smm_issuemap.ISSUEVALUE', fieldName:'ISSUEVALUE'})<-[:CONTAINS]-(revport_dbo_bss_smm_issuemap)

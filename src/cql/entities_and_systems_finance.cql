@@ -44,6 +44,8 @@ MERGE (ship:Entity:ThirdParty {name:'SHIP'})
 MERGE (:Entity:ThirdParty {name:'SS&C'})-[:OWNS]->(:System {name:'GWP', description:'Global Wealth Platform'})
 MERGE (bny:Entity:ThirdParty {name:'BNY'})
     MERGE (bny)-[:OWNS]->(egl:System {name:'Eagle'})
+MERGE (wd:Entity:ThirdParty {name:'Workday'})
+    MERGE (wd)-[:OWNS]->(:System {name:'Workday'})
 
 // applications
 MERGE (rpa:App {appId:'app_finrpa', name:'Revport Admin App'})
@@ -63,3 +65,4 @@ MERGE (comapp:App {appId:'app_fincomm', name:'Commissions App', repo:'TBD', stat
 MERGE (st_tax_app:App {appId:'app_finstx', name:'State Tax App', description:'Calculates state tax'})
     MERGE (domain_finance)-[:OWNS]->(st_tax_app)
     MERGE (st_tax_app)-[:TECHNICAL_PRODUCT_OWNER]-(paul)
+MERGE (:App {appId:'app_finmw', name:'Finance Middleware', description:'Manages movement of Finance data'})

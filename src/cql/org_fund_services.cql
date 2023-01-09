@@ -1,0 +1,5 @@
+MERGE (FS:Organization {name:'Fund Services'})
+    MERGE (FSTA:Organization {domainId:'FSTA', name:'Transfer Agent & Servicing'})-[:PARENT]->(FS)
+    MERGE(FSFA:Organization{'Fund Admin'})-[:PARENT]->(FS)
+    MERGE(FSAR:Organization{'Accounting & Reporting'})-[:PARENT]->(FS)
+        MERGE(FAMFPV:Organization{'Mutual Fund Pricing & Valuation'})-[:PARENT]->(FSAR)

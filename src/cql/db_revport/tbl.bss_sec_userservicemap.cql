@@ -1,0 +1,7 @@
+MATCH (db_Revport:Database {name: 'Revport'})
+MERGE (revport_dbo_bss_sec_userservicemap:Table {tableId:'revport_dbo_bss_sec_userservicemap', fqn:'Revport.dbo.BSS_SEC_USERSERVICEMAP', tableName:'BSS_SEC_USERSERVICEMAP'})
+MERGE (db_Revport)-[:CONTAINS]->(revport_dbo_bss_sec_userservicemap)
+	MERGE (:Field {fieldId:'revport_dbo_bss_sec_userservicemap_bssuserservicemapid', fqn:'revport_dbo_bss_sec_userservicemap.BSSUSERSERVICEMAPID', fieldName:'BSSUSERSERVICEMAPID'})<-[:CONTAINS]-(revport_dbo_bss_sec_userservicemap)
+	MERGE (:Field {fieldId:'revport_dbo_bss_sec_userservicemap_bssuserid', fqn:'revport_dbo_bss_sec_userservicemap.BSSUSERID', fieldName:'BSSUSERID'})<-[:CONTAINS]-(revport_dbo_bss_sec_userservicemap)
+	MERGE (:Field {fieldId:'revport_dbo_bss_sec_userservicemap_bssserviceid', fqn:'revport_dbo_bss_sec_userservicemap.BSSSERVICEID', fieldName:'BSSSERVICEID'})<-[:CONTAINS]-(revport_dbo_bss_sec_userservicemap)
+	MERGE (:Field {fieldId:'revport_dbo_bss_sec_userservicemap_bsslevelid', fqn:'revport_dbo_bss_sec_userservicemap.BSSLEVELID', fieldName:'BSSLEVELID'})<-[:CONTAINS]-(revport_dbo_bss_sec_userservicemap)

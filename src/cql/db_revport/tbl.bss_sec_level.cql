@@ -1,0 +1,6 @@
+MATCH (db_Revport:Database {name: 'Revport'})
+MERGE (revport_dbo_bss_sec_level:Table {tableId:'revport_dbo_bss_sec_level', fqn:'Revport.dbo.BSS_SEC_LEVEL', tableName:'BSS_SEC_LEVEL'})
+MERGE (db_Revport)-[:CONTAINS]->(revport_dbo_bss_sec_level)
+	MERGE (:Field {fieldId:'revport_dbo_bss_sec_level_bsslevelid', fqn:'revport_dbo_bss_sec_level.BSSLEVELID', fieldName:'BSSLEVELID'})<-[:CONTAINS]-(revport_dbo_bss_sec_level)
+	MERGE (:Field {fieldId:'revport_dbo_bss_sec_level_tablename', fqn:'revport_dbo_bss_sec_level.TABLENAME', fieldName:'TABLENAME'})<-[:CONTAINS]-(revport_dbo_bss_sec_level)
+	MERGE (:Field {fieldId:'revport_dbo_bss_sec_level_displayname', fqn:'revport_dbo_bss_sec_level.DISPLAYNAME', fieldName:'DISPLAYNAME'})<-[:CONTAINS]-(revport_dbo_bss_sec_level)

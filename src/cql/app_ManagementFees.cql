@@ -84,3 +84,8 @@ MERGE (func_ana_cls_lvl)-[:OUTPUTS]->(fld_BNYANAClassLvl)
     SET func_ana_cls_lvl.description = "ANA aggregated at the class level and composed by merging data for standard funds, closed-end funds and UCITS"
     MERGE (bt_ana)-[:DEFINES]->(func_ana_cls_lvl)
     MERGE (bt_ana)-[:DEFINES]->(fld_BNYANAClassLvl)
+
+// Output
+MERGE (dir_mf_exp:Directory {name:'//vcfpp01/Data/CorpAcct/REVENUE/yyyy/mm-yyyy/Mgmt Fee App/export'})
+MERGE (file_wd_export:File {name:'WDExport_mmm-yyyy.xlsx'})<-[:CONTAINS]-(dir_mf_exp)
+MERGE (app_mgt_fee)-[:OUTPUTS]->(file_wd_export)
