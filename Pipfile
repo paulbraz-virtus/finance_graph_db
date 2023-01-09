@@ -8,6 +8,7 @@ pandas = "*"
 neo4j = "*"
 openpyxl = "*"
 jinja2 = "*"
+pymssql = "*"
 
 [dev-packages]
 ipykernel = "*"
